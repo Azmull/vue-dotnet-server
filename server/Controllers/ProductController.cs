@@ -31,6 +31,7 @@ namespace server.Controllers
       return product != null ? Ok(product) : NotFound(new { message = "找不到商品" });
     }
 
+    //這個是自己寫的
     [HttpGet]
     public IActionResult GetAllProduct()
     {
@@ -38,6 +39,7 @@ namespace server.Controllers
       return productsall != null ? Ok(productsall) : NotFound(new { message = "找不到商品" });
     }
 
+    //新增
     [HttpPost]
     public IActionResult CreateProduct(ProductDto product)
     {
@@ -52,7 +54,7 @@ namespace server.Controllers
         rate = random.Next(1, 6),
         stock = product.stock,
         description = product.description,
-        image = "images/products/0.png",
+        image = string.IsNullOrEmpty(product.image) ? "images/products/0.png" : product.image, // 預設圖片
         status = true
       };
       products.Add(newProduct);
