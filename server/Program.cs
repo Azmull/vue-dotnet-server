@@ -13,9 +13,9 @@ builder.Services.AddCors(options =>
   options.AddDefaultPolicy(builder =>
   {
     builder.WithOrigins(["http://localhost:5174", "http://localhost:5173"]) // 指定允許的前端來源
-             .AllowAnyHeader()
-             .AllowAnyMethod()
-             .AllowCredentials(); // 允許憑證
+    .AllowAnyHeader()
+    .AllowAnyMethod()
+    .AllowCredentials(); // 允許憑證
   });
 });
 
@@ -27,8 +27,8 @@ app.UseCors();
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
-    app.UseSwagger();
-    app.UseSwaggerUI();
+  app.UseSwagger();
+  app.UseSwaggerUI();
 }
 
 // 提供 wwwroot 中的靜態檔案
